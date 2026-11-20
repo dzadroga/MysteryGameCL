@@ -5,105 +5,70 @@ from Museum_Game.Museum_Characters import MuseumCharacters
 
 class Interviews:
 
-    #Global Variables that are reused thoughout interview's
-    Question1 = "1. How are you when it comes to working with Computers?"
-    Question2 = "2. " 
-    Question3 = ""
-    Question4 = ""
-    Question5 = ""
+    #Creates dictionary for the interview questions
+    questions = { 
+        "1" : ("technology", "1. How are you when it comes to working with Computers?"),
+        "2" : ("alibi", "2. Can anyone confirm where you were last night?"), 
+        "3" : ("suspect", "3. Who do you think is responible for stealing the painting?"),
+        "4" : ("noise", "4. Did you hear any odd noises?"),
+        "5" : ("painting", "5. When was the last time you saw the painting?")
+    }
+
 
     def Interview(self):
-        menuInput = ''
-        inputTrack = 0
+        characters = {
+            "1" : MuseumCharacters.Jason,
+            "2" : MuseumCharacters.Amanda,
+            "3" : MuseumCharacters.Lane,
+            "4" : MuseumCharacters.Sam
+        }
 
-        menuInput = print("Who would you like to Interview? (Select a Number 1 - 4)")
+        while True:
+            print("\nWho would you like to Interview?")
 
-        print("1. Jason the Security Guard")
-        print("2. Amanda the Curator")
-        print("3. Lane the Artist")
-        print("4. Sam the Barista")
-        print("M. Return to Menu")
+            for number, character in character.items():
+                print(f"{number}: {character.name} the {character.description}")
+            print("M. Return to Menu")
 
-        if menuInput == "1":
-            self.InterviewJason()
-            inputTrack += 1
+            menuInput = print("Select a Number 1 - 4: ").strip().lower()
 
-        elif menuInput == "2":
-            self.InterviewAmanda()
-            inputTrack += 1
+            if menuInput == "W" or menuInput == "w":
+                Notebook.writeNote()
+            elif menuInput == "N" or menuInput == "n":
+                Notebook.readNotes()
 
-        elif menuInput == "3":
-            self.InterviewLane()
-            inputTrack += 1
+            elif menuInput == "E" or menuInput == "e":
+                return
+            elif menuInput == "M" or menuInput == "m":
+                return
 
-        elif menuInput == "4":
-            self.InterviewSam()
-            inputTrack += 1
+            if menuInput in character:
+                self.InterviewCharacter(character[menuInput])
+            else: 
+                print(" I am not sure I understand")
 
-        elif menuInput == "W" or menuInput == "w":
+    def InterviewCharacter(self, character):
+        while True: 
+            print(f"You are now interviewing {character.name} the {character.description}")
+            print("What would you like to ask?")
 
-            inputTrack += 1
-        elif menuInput == "N" or menuInput == "n":
+            for number, (_, self.questions) in self.questions.items():
+                print(f"{number}. {questions}")
+            print("M. Return to Menu") 
 
-            inputTrack += 1
+            menuInput = print("Select a Number 1 - 5: ").strip().lower()
 
-        elif menuInput == "E" or menuInput == "e":
+            if menuInput == "W" or menuInput == "w":
+                Notebook.writeNote()
+            elif menuInput == "N" or menuInput == "n":
+                Notebook.readNotes()  
+            elif menuInput == "E" or menuInput == "e":
+                return
+            elif menuInput == "M" or menuInput == "m":
+                return
 
-            inputTrack += 1
-        elif menuInput == "M" or menuInput == "m":
-
-            inputTrack += 1
-        else:
-            print("I am not sure I understand")
-
-    def InterviewJason(self):
-        menuInput = ''
-        inputTrack = 0
-
-        menuInput = input("What Question do you want to ask?")
-        print(self.Question1)
-        print(self.Question2)
-        print(self.Question3)
-        print(self.Question4)
-        print(self.Question5)
-
-        if menuInput == "1":
-            print(Jason.answers("technology"))
-            inputTrack += 1
-        
-        elif menuInput == "2":
-            self.InterviewAmanda()
-            inputTrack += 1
-        
-        elif menuInput == "3":
-            self.InterviewLane()
-            inputTrack += 1
-        
-        elif menuInput == "4":
-            self.InterviewSam()
-            inputTrack += 1
-        
-        elif menuInput == "W" or menuInput == "w":
-        
-            inputTrack += 1
-        elif menuInput == "N" or menuInput == "n":
-        
-            inputTrack += 1
-        
-        elif menuInput == "E" or menuInput == "e":
-        
-            inputTrack += 1
-        elif menuInput == "M" or menuInput == "m":
-        
-            inputTrack += 1
-        else:
-            print("I am not sure I understand")
-        
-
-    def InterviewAmanda(self):
-
-
-    def InterviewLane(self):
-
-
-    def InterviewSam(self):
+            if menuInput in self.questions:
+                answer_key, _ = self.questions(menuInput)
+                print(character.answerQuestion(answer_key))
+            else: 
+                print("I am not sure I understand")
