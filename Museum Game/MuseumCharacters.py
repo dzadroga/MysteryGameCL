@@ -18,7 +18,7 @@ Amanda = Character(
     "Curator",
     {
          "technology": "I like to consider myself pretty tech savvy",
-         "alibi": "", 
+         "alibi": "I was talking to some donors but I am not exactly sure because I lost my watch tonight", 
          "suspects" : "I think it was Sam, she has been eyeing that peice for weeks, I have a nact at noticing that stuff", 
          "noise" : "I did not hear anything, maybe a man's voice",
          "painting" : "The last time I saw the it was around 8:30pm when I was walking around some donors"              
