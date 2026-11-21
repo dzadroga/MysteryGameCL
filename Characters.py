@@ -3,7 +3,7 @@
 
 class Character:
     
-    def __init__(self, name,description, answers):
+    def __init__(self, name, description, answers):
         self.name =name
         self.description = description 
         self.answers = answers

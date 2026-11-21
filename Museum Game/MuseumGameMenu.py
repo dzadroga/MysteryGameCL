@@ -1,6 +1,6 @@
 #Holds the logic and interactions for the museum game
 
-from museum_game.museum_characters import MuseumCharacters
+from MuseumCharacters import MuseumCharacters
 from Notebook import Notebook
 
 class MueseumGameMenu:
@@ -28,7 +28,7 @@ class MueseumGameMenu:
 
 
     def IntroCall(self):
-        print("A $1 million painting went missing last night around 9:15pm and we need to find it")
+        print("A $1 million painting went missing last night around 9:15pm and we need to find it!")
         print("The only problem is, the camera footage seems to have been deleted.  While our security gaurd Jason")
         print("was locking down the place, we checked the cameras at the front desk.  Turns out, the footage was gone!")
         print("At any point access your notebook by entering N, you can keep track of all your findings there!")
